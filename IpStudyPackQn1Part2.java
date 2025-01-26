@@ -17,7 +17,7 @@ e) Find and display the movie which received the highest average rating. */
 
 import java.util.Scanner;
 
-public class IpStudyPackQn2 {
+public class IpStudyPackQn1Part2 {
 
 	public static void main(String[]args) {
 
