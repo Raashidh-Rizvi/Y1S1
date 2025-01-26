@@ -1,115 +1,79 @@
-/*A 2D array is used to store the details of the rating of 3 movies given by 4 reviewers. Some sample 
-data is shown below. 
- 
-        Reviewers 
-        1 4 6 2 5 
-Movies  2 7 9 4 8 
-        3 6 9 3 7 
- 
- 
-Write a java program to do the following. 
- 
-a) Declare an array called ratings to store the details of the rating of 3 movies given by 4 reviewers. 
-b) Read the movie ratings from the keyboard and store the data in the array. 
-c) Display the array in tabular format. 
-d) For each movie, display the movie number and the average rating. 
-e) Find and display the movie which received the highest average rating. */
-
 import java.util.Scanner;
 
 public class IpStudyPackQn2 {
 
-	public static void main(String[]args) {
-
-
-	Scanner input = new Scanner(System.in);
-
-	int ratings[][] = new int[3][4];
-	int i,j;
-	
-	for(i=0;i<=2;i++){
-		System.out.println("Review For Movie "+ (i+1));
-		for(j=0;j<=3;j++){
-		
-		System.out.print("Enter The review by reviewer " + (j+1)+" : ");
-
-		ratings[i][j]=input.nextInt();
-		
-
-		}
-	System.out.println();	
+public static float calAnnualInterest(float interestRate,float amount){
+	if (amount > 1000000){
+		interestRate += 0.5f;
 	}
-
-
-	System.out.print("Ratings \t");
-	for(j=0;j<=3;j++){
-		System.out.print("Reviewer "+ (j+1)+"  ");
-
-	}
-
-	System.out.println();
-	for(i=0;i<=2;i++){
-		System.out.print("Movie  "+ (i+1)+" \t ");
-
-		for(j=0;j<=3;j++){
-		
-		System.out.print (ratings[i][j] +"  \t\t");
-
-		}
-	System.out.println();
-	}
-
-
 	
-
-	int sum;
-	double avg=0;
-	double max=0;
-	int hmovie=0;
-	
-
-	System.out.println();
-
-	for(i=0;i<=2;i++){
-		
-		sum=0;
-		System.out.print("Average Rating of Movie  "+ (i+1)+" : ");
-		
-
-		for(j=0;j<=3;j++){
-			
-			sum= sum + ratings[i][j];
-	
-		
-		avg=sum/(j+1.0);
-		}
-
-			if(avg>max){
-			max=avg;
-
-			hmovie=i+1;
-
-			}
-
-	System.out.println(avg);
-
-	System.out.println();
-
-	
-
-
-	}
-
-System.out.println();
-	System.out.println("The Movie "+ hmovie + " has the  highest rating with the rating of "+max);
-
+	return  amount * interestRate / 100;
 }
+
+
+
+public static float findTotalAmount(float calAnnualInterest,float amount){
+	return calAnnualInterest +  amount;
+}
+
+public static void testTotalAmount() {
+
+	float testAmount1 = 10000;
+	float testInterestRate1 = 10;
+	float expectedTotal1 = 11000;
+
+	float annualInterest1 = calAnnualInterest(testInterestRate1, testAmount1);
+	assert Math.abs(findTotalAmount(annualInterest1,testAmount1)-expectedTotal1 ) < 0.01 :"Test Case 1 Failed" ;
+
+
+
+	float testAmount2 = 2000000;
+	float testInterestRate2 = 5;
+	float expectedTotal2 = 2110000;
+	
+	float annualInterest2 = calAnnualInterest(testInterestRate2, testAmount2);
+	assert Math.abs(findTotalAmount(annualInterest2,testAmount2)-expectedTotal2) < 0.01 :"Test Case 2 Failed" ;
+	
+		
+	System.out.println("All test cases passed! ");
+
+
 
 }
 
 
 
+
+
+	public static void main (String[]args) {
+		testTotalAmount();
+		Scanner input = new Scanner (System.in);
+		
+
+		System.out.print("Enter Initial Amount to be invested : ");
+		float amount = input.nextFloat();
+
+		System.out.print("Enter Annual interest Rate ( in %) : ");
+		float interestRate = input.nextFloat();
 	
+
+		
 	
 
 
+		
+		for(int year=1;year<=5;year++){
+			float annualInterest = calAnnualInterest( interestRate,amount);
+
+    			amount = findTotalAmount( annualInterest, amount);
+
+    			System.out.println("Amount after year "+ year +" : "+amount);
+
+		}
+		
+
+	}
+
+
+
+}
