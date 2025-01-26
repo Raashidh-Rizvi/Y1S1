@@ -13,7 +13,7 @@ d) Display the output as shown in the above figure. */
 
 
 
-public class IpStudyPackQn1 {
+public class IpStudyPackQn1Part1 {
 
 	public static void main(String[]args) {
 
