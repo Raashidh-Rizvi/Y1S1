@@ -12,10 +12,10 @@ public static void main (String[]args) {
 	System.out.println();
 
 	System.out.print ("Enter The Price Of 1kg of rice : ");
-	double price = input.nextInt();
+	double price = input.nextDouble();
 
 	System.out.print ("Enter The Number of Kilograms You Want to buy : " );
-	double kilos = input.nextInt();
+	double kilos = input.nextDouble();
 
 	double total = price * kilos;
 	System.out.println();
@@ -30,5 +30,6 @@ public static void main (String[]args) {
 	
 
 	
+
 
 
