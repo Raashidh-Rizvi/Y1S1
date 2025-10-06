@@ -17,13 +17,13 @@ An employee is paid an additional amount to his monthly salary as OT amount.
 
 	
 	System.out.print ("Enter the monthly salary : ");
-	double salary = input.nextInt();
+	double salary = input.nextDouble();
 
 	System.out.print ("Enter The Number Of OT hours : ");
-	double ot = input.nextInt();
+	double ot = input.nextDouble();
 	
 	System.out.print ("Enter The OT hourly rate : ");
-	double rate = input.nextInt();
+	double rate = input.nextDouble();
 
 
 	Double otAmount = ot * rate;
@@ -37,6 +37,7 @@ An employee is paid an additional amount to his monthly salary as OT amount.
 }
 
 }
+
 
 
 
